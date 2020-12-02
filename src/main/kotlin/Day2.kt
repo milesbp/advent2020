@@ -3,23 +3,39 @@ import java.nio.file.Paths
 class Day2 {
 
     fun run1() {
-        val resource = javaClass.classLoader.getResource("day2input.txt")!!
-        val input = mutableListOf<Password>()
-        Paths.get(resource.toURI()).toFile().forEachLine { it ->
-            it.split(' ').let { line ->
-                val counts = line[0].split('-')
-                input.add(Password(counts[0].toInt(), counts[1].toInt(), line[1].toCharArray()[0], line[2]))
-            }
-        }
+        println("run 1")
         var validPasswordCount = 0
-        input.forEach { passwordData ->
+        buildPasswordList().forEach { passwordData ->
             createHashes(passwordData.password).let {
                 if (validateHash(it, passwordData.character, passwordData.min, passwordData.max))
                     validPasswordCount++
             }
         }
         println(validPasswordCount)
+    }
 
+    fun run2() {
+        println("run 2")
+        var validPassworrdCount = 0
+        buildPasswordList().forEach {
+            if ((it.password[it.min - 1] == it.character || it.password[it.max - 1] == it.character)
+                && it.password[it.min - 1] != it.password[it.max - 1]
+            )
+                validPassworrdCount++
+        }
+        println(validPassworrdCount)
+    }
+
+    fun buildPasswordList(): MutableList<Password> {
+        val resource = javaClass.classLoader.getResource("day2input.txt")!!
+        val input = mutableListOf<Password>()
+        Paths.get(resource.toURI()).toFile().forEachLine { it ->
+            it.split(' ').let { line ->
+                val counts = line[0].split('-')
+                input.add(Password(counts[0].toInt(), counts[1].toInt(), line[1][0], line[2]))
+            }
+        }
+        return input
     }
 
     private fun createHashes(password: String): HashMap<Char, Int> {
@@ -41,10 +57,3 @@ class Day2 {
         }
 
 }
-
-data class Password(
-    val min: Int,
-    val max: Int,
-    val character: Char,
-    val password: String
-)
