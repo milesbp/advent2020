@@ -1,3 +1,4 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    Day1().run1()
+    Day1().run2()
 }
