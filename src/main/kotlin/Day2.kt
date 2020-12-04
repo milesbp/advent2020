@@ -1,3 +1,4 @@
+import data.Password
 import java.nio.file.Paths
 
 class Day2 {
