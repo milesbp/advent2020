@@ -16,6 +16,7 @@ class Day4 {
     }
 
     fun run2() {
+        println("Day 4 run 2")
         val passports = processPassports()
         val validPassports = mutableListOf<Passport>()
         passports.forEach {
