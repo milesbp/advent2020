@@ -1,4 +1,12 @@
 .gradle/
 build/
 out/
+private/
+.env
 .idea/
+*.iml
+*.log
+.DS_Store
+/common/
+
+openapi/
