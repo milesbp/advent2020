@@ -27,7 +27,7 @@ class Day6 {
 
         lines.forEach { survey ->
             if (survey.isNotEmpty())
-                currentInput = currentInput.intersect(survey.toCharArray().map { it })
+                currentInput = currentInput.intersect(survey.toHashSet().map { it })
             else {
                 count += currentInput.count()
                 currentInput = initAlphaSet()
