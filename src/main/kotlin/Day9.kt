@@ -3,11 +3,23 @@ import java.nio.file.Paths
 class Day9 {
 
     private val windowSize = 25
+    private val error = 41682220L
 
     fun run1() {
         val input = processInstructions()
         val windows = input.windowed(windowSize, 1)
         println(input[windowSize + findFirstError(windows)])
+    }
+
+    fun run2() {
+        val input = processInstructions()
+        //window size = i
+        for (i in 2 until input.size) {
+            input.windowed(i, 1).forEach { window ->
+                if (window.sum() == error)
+                    println(window.minOrNull()!! + window.maxOrNull()!!)
+            }
+        }
     }
 
     fun findFirstError(windows: List<List<Long>>): Int {
@@ -30,7 +42,6 @@ class Day9 {
                 }
             }
         }
-
 
     private fun processInstructions() =
         Paths.get(javaClass.classLoader.getResource("day9input.txt")!!.toURI()).toFile()

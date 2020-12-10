@@ -22,4 +22,7 @@ fun main(args: Array<String>) {
     //Day8().run2()
 
     Day9().run1()
+    Day9().run2()
+    //1706712
+    //3682264
 }
