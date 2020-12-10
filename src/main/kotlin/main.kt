@@ -19,5 +19,7 @@ fun main(args: Array<String>) {
     Day7().run2()*/
 
     //Day8().run1()
-    Day8().run3()
+    //Day8().run2()
+
+    Day9().run1()
 }
