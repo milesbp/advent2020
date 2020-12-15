@@ -1,3 +1,5 @@
+import data.Day13
+
 fun main(args: Array<String>) {
     //Day1().run1()
     //Day1().run2()
@@ -27,8 +29,10 @@ fun main(args: Array<String>) {
     // Day10().run2()
     //Day11().run1()
 
-    Day12().run1()
-    Day12().run2()
+/*    Day12().run1()
+    Day12().run2()*/
+    Day13().run1()
+    Day13().run2()
     //1706712
     //3682264
 }
