@@ -28,6 +28,7 @@ fun main(args: Array<String>) {
     //Day11().run1()
 
     Day12().run1()
+    Day12().run2()
     //1706712
     //3682264
 }
